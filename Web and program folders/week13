@@ -1,0 +1,28 @@
+
+# print()
+
+
+# def wind_chill(T,V):
+#     value = 35.74 + 0.6215 * T - 35.75 * (V ** 0.16) + 0.4275 * T * (V ** 0.16)
+#     return value
+
+# T = float(input('What is the temperature? '))
+# f_c = input('Fahrenheit or Celsius (F/C)? ')
+
+# if f_c.upper() == 'C':
+#     T = (T * 9/5) + 32
+
+# for x in range (5,65,5):
+#     V = x
+#     value =  wind_chill(T,V)
+#     print(f'At temperature {T} F, and wind speed {x} mph, the windchill is: {value:.2f}F')
+
+
+# def display_numbers(x, y):
+#     display_numbers(3, 3)
+
+#     print(x)
+def display_numbers(x, y):
+
+    print(x)
+display_numbers(3, 4)

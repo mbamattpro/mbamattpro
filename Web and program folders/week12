@@ -1,0 +1,103 @@
+
+
+import csv
+
+high = 0
+low = 150
+high2 = 0
+low2 = 150
+high3 = 0
+low3 = 150
+
+rows = []                                                       
+c_high = ''
+c_low = ''
+c_high2 = ''
+c_low2 = ''
+c_high3 = ''
+c_low3 = ''
+
+
+user_choice = 0
+count_y = 0
+count_c = 0
+total_y = 0
+total_C = 0
+
+print()
+
+
+with open("life-expectancy.csv", 'r') as life_exp_f:
+    main = life_exp_f.readlines()
+
+data = main[1:]
+data.sort(reverse=True)
+my_input = input('What is the year of interest: ')
+my_input2 = input('What is the country of interest: ')  
+for x in data:
+    x = x.strip()
+    parts = x.split(',')
+    country = parts[0]
+    code = parts[1]
+    year = parts[2]
+    life_exp = float(parts[3])
+    if high < life_exp :
+        high = life_exp
+        c_high = country
+        year_oh =  year
+    elif life_exp < low :
+        low = life_exp
+        c_low = country
+        year_ol = year
+    
+    if  my_input == year:
+        count_y += 1
+        total_y = total_y + life_exp
+        if high2 < life_exp :
+            high2 = life_exp
+            c_high2 = country
+            year_yh = year
+        elif life_exp < low2 :
+            low2 = life_exp
+            c_low2 = country
+            year_yl = year
+            
+     
+    if  my_input2.capitalize() == country:
+        
+        count_c += 1
+        total_C = total_C + life_exp
+        if high3 < life_exp :
+            high3 = life_exp
+            c_high3 = country
+            year_ch = year       
+        elif life_exp <  low3 :
+            low3 = life_exp
+            c_low3 = country
+            year_cl = year
+        
+        
+        
+# To findthe average when choice is year
+average_y = total_y/count_y
+
+# To findthe average when choice is country
+average_c = total_C/count_c  
+
+
+print()
+print(f'The Overall maximum Life expentancy is {high} from {c_high} in {year_oh}')
+print(f'The overall minimun Life expentancy is {low} from {c_low} in {year_ol}')
+
+
+print(f'Year {my_input2.capitalize()}')
+print()
+print(f'The average life expectancy across all countries in {my_input2} was {average_y:.2f}')
+print(f'The maximum Life expentancy was in {c_high2} with {high2} in {year_yh}')
+print(f'The minimum Life expentancy was in {c_low2} from {low2} in {year_yl}')
+print()
+print(f'The life expectancy for {my_input2}')
+
+print(f'The average life expectancy of {my_input2.capitalize()} was {average_c:.2f}')
+print(f'The maximum life expectancy of {my_input2.capitalize()} was {high3} in {year_ch}')                                                                                                                                                                                                     
+print(f'The minimum life expectancy of {my_input2.capitalize()} was  {low3} in {year_cl}')
